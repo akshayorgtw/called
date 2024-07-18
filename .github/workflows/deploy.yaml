@@ -1,0 +1,23 @@
+name: Build Docker Image
+on:
+  workflow_call:
+    inputs:
+      appName:
+        description: 'Name of the Application - for which CI is triggered'
+        required: true
+        type: string
+      branch:
+        description: 'Name of the branch - to checkout code. By default, checkout will be from main branch'
+        required: false
+        type: string
+        default: 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+           
+      - name: Get the SHA
+        run: echo ${{ github.sha }}
