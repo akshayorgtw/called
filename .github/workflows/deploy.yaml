@@ -20,4 +20,4 @@ jobs:
         uses: actions/checkout@v4
            
       - name: Get the SHA
-        run: echo ${{ github.sha }}
+        run: echo "${{ github.sha }}"
