@@ -19,10 +19,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
            
-      - name: Get the SHA
-        run: echo "image_tag="${{ GITHUB_SHA }}" | cut -c 1-7" >> $GITHUB_ENV
-
-      - name: print
+      - name: Set image tag based on GITHUB_SHA
+        run: echo "image_tag=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+      
+      - name: Display image_tag
         run: echo $image_tag
         
 
